@@ -32,7 +32,18 @@
                             <outlet property="delegate" destination="Dkh-Wq-duw" id="oKL-Gp-8zx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="ToDoEy" id="FPk-dl-I83"/>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="KJI-be-uFu"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="ToDoEy" id="FPk-dl-I83">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rtQ-B0-b1C">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="Dkh-Wq-duw" id="T66-18-oAk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="columnTableView" destination="COV-cL-0ZJ" id="0gg-vW-VEX"/>
                     </connections>
