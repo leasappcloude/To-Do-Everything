@@ -9,14 +9,13 @@
 import UIKit
 import RealmSwift
 
-class TodoListViewController: UITableViewController {
+class TodoListViewController: SwipeTableViewController {
     @IBOutlet var columnTableView: UITableView!
     
     let realm = try! Realm()
     
     var toDoItems : Results<Item>?
    
-    
     var selectedCategory : Category? {
         didSet{
             loadItems()
@@ -34,9 +33,10 @@ class TodoListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
-        
+
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
+
         if let item = toDoItems?[indexPath.row] {
             cell.textLabel?.text = item.title
             cell.accessoryType = item.done ? .checkmark : .none
@@ -104,7 +104,7 @@ class TodoListViewController: UITableViewController {
         
     }
     
-    //Mark - Model Manupilation Methods
+    //MARK: - Model Manupilation Methods
 
     
     func loadItems() {
@@ -115,8 +115,22 @@ class TodoListViewController: UITableViewController {
 
     }
 
+    override func updateModel(at indexPath: IndexPath) {
+        
+        super.updateModel(at: indexPath)
+        
+        if let item = toDoItems?[indexPath.row] {
+            do {
+                try realm.write {
+                    realm.delete(item)
+                }
+            } catch {
+                print("Error updating superclass, \(error)")
+            }
+        }
+    }
+
    
-    
 }
 
 extension TodoListViewController : UISearchBarDelegate {
