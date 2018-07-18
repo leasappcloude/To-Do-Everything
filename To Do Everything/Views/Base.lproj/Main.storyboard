@@ -34,7 +34,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="ToDoEy" id="i2k-sl-lFF">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="195-Qj-G6d">
-                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="categoryAddButtonPressed:" destination="4Fr-mE-Sr9" id="1Zp-VE-pma"/>
                             </connections>
@@ -84,7 +83,6 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Items" id="FPk-dl-I83">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rtQ-B0-b1C">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addButtonPressed:" destination="Dkh-Wq-duw" id="T66-18-oAk"/>
                             </connections>
@@ -93,6 +91,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="columnTableView" destination="COV-cL-0ZJ" id="0gg-vW-VEX"/>
+                        <outlet property="seachtBar" destination="KjD-w9-Z7f" id="oWg-jI-DIf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="osX-C1-rhw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -104,8 +103,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gMf-zZ-3pj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XEw-Sl-AY5">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="XEw-Sl-AY5">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
