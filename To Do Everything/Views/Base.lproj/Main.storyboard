@@ -91,7 +91,9 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="columnTableView" destination="COV-cL-0ZJ" id="0gg-vW-VEX"/>
+                        <outlet property="seachBar" destination="KjD-w9-Z7f" id="sfP-2T-zwt"/>
                         <outlet property="seachtBar" destination="KjD-w9-Z7f" id="oWg-jI-DIf"/>
+                        <outlet property="searchBar" destination="KjD-w9-Z7f" id="Z0k-ii-Fdf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="osX-C1-rhw" userLabel="First Responder" sceneMemberID="firstResponder"/>

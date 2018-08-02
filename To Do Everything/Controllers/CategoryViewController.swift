@@ -33,15 +33,15 @@ class CategoryViewController: SwipeTableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        cell.textLabel?.text = categories?[indexPath.row].name ?? "No Categories Addes yet"
-        
-        if let color = categories?[indexPath.row].randomColour {
-            cell.backgroundColor = UIColor(hexString: color)
-        }
-        else {
-            cell.backgroundColor = UIColor(hexString: "1D9BF6")
-        }
-        
+        if let category = categories?[indexPath.row] {
+            
+            cell.textLabel?.text = category.name
+            
+//            guard let categoryColour = UIColor(hexString: category.colour) else {fatalError()}
+//
+//            cell.backgroundColor = categoryColour
+//            cell.textLabel?.textColor = ContrastColorOf(categoryColour, returnFlat: true)
+       }
         return cell
     }
     
@@ -107,25 +107,26 @@ class CategoryViewController: SwipeTableViewController{
         
         var textField = UITextField()
         
-        let alert = UIAlertController(title: "Add new ToDo-Category", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add new Category", message: "", preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "Add Category", style: .default) { (alert) in
+        let action = UIAlertAction(title: "Add", style: .default) { (alert) in
             
             let newCategory = Category()
             newCategory.name = textField.text!
-            newCategory.randomColour = UIColor.randomFlat.hexValue()
+            newCategory.colour = UIColor.randomFlat.hexValue()
             self.save(category: newCategory)
             }
         
-        alert.addTextField {(alertTextField) in
-            alertTextField.placeholder = "Create new Category"
-            textField = alertTextField
-            }
-        
         alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+  
         
-        tableView.reloadData()
+        alert.addTextField {(field) in
+            textField = field
+            textField.placeholder = "Create new Category"
+            }
+
+        present(alert, animated: true, completion: nil)
+        //tableView.reloadData()
     }
     
 

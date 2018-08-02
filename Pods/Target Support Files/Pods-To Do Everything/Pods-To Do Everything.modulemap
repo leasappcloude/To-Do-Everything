@@ -1,0 +1,6 @@
+framework module Pods_To_Do_Everything {
+  umbrella header "Pods-To Do Everything-umbrella.h"
+
+  export *
+  module * { export * }
+}
